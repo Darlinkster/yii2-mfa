@@ -57,12 +57,15 @@ class OtpForm extends Model
     {
         if (!$this->user->validateOtpByIdentityLoggedIn($this->otp)) {
             $this->addError('otp', Yii::t('app', 'Otp is invalid!'));
-
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
-
+    public function attributeLabels(): array
+    {
+        return [
+            'otp' => 'OTP',
+        ];
+    }
 }
