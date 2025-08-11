@@ -137,7 +137,7 @@ class Behavior extends BaseBehavior
      */
     public function beforeLogin(UserEvent $event)
     {
-        if (!$event->isValid) {
+        if (!$event->isValid || !$this->enable) {
             return;
         }
 
