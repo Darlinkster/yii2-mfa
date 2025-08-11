@@ -56,7 +56,10 @@ class OtpForm extends Model
     public function verify()
     {
         if (!$this->user->validateOtpByIdentityLoggedIn($this->otp)) {
-            $this->addError('otp', Yii::t('app', 'Otp is invalid!'));
+            $msg = Yii::t('app', '{attribute} is invalid!', [
+                'attribute' => $this->getAttributeLabel('otp'),
+            ]);
+            $this->addError('otp', $msg);
             return false;
         }
         return true;
@@ -65,7 +68,7 @@ class OtpForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'otp' => 'OTP',
+            'otp' => Yii::t('app', 'OTP'),
         ];
     }
 }
