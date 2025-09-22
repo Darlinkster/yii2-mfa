@@ -54,10 +54,10 @@ class Otp extends BaseObject
     /**
      * @var string the template of qr code uri server. Please note that this URI MUST contain a placeholder {PROVISIONING_URI} for the OTP Provisioning URI.
      */
-    public $qrCodeUriTemplate = 'https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
-    
+    public $qrCodeUriTemplate = 'https://quickchart.io/chart?chs=200x200&chld=M|0&cht=qr&chl={PROVISIONING_URI}';
+
     /**
-     * @var string 
+     * @var string
      */
     public $qrCodeUriPlacehoder = '{PROVISIONING_URI}';
 

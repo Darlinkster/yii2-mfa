@@ -1,5 +1,5 @@
 {
-    "name": "vxm/yii2-mfa",
+    "name": "darlinkster/yii2-mfa",
     "description": "Multi-factor authentication for yii2",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","mfa"],

@@ -13,7 +13,7 @@ An extension support implementing multi factor authenticate base on [Spomky-Labs
 
 ## Requirements
 
-* [PHP >= 7.1](http://php.net)
+* [PHP >=7.1|>=8.0](http://php.net)
 * [yiisoft/yii2 >= 2.0.13](https://github.com/yiisoft/yii2)
 
 ## Installation
@@ -21,7 +21,7 @@ An extension support implementing multi factor authenticate base on [Spomky-Labs
 Require Yii2 MFA using [Composer](https://getcomposer.org):
 
 ```bash
-composer require vxm/yii2-mfa
+composer require darlinkster/yii2-mfa
 ```
 
 ## Usage
