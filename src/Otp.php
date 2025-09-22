@@ -15,6 +15,16 @@ use OTPHP\TOTP;
 
 use ParagonIE\ConstantTime\Base32;
 
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Writer\ValidationException;
+
 /**
  * Class Otp support generate and validate by given secret key.
  *
@@ -110,6 +120,31 @@ class Otp extends BaseObject
         }
 
         return $instance->getQrCodeUri($this->qrCodeUriTemplate, $this->qrCodeUriPlacehoder);
+    }
+
+    public function generateQrCodeImage(string $secretKey, array $params)
+    {
+        $instance = $this->createInstance($secretKey);
+
+        foreach ($params as $param => $value) {
+            $instance->setParameter($param, $value);
+        }
+
+        $this->qrCodeUriTemplate = $this->qrCodeUriPlacehoder;
+        $writer = new PngWriter();
+        $qrCode = new QrCode(
+            data: $instance->getQrCodeUri($this->qrCodeUriTemplate, $this->qrCodeUriPlacehoder),
+            encoding: new Encoding('UTF-8'),
+            errorCorrectionLevel: ErrorCorrectionLevel::Low,
+            size: 200,
+            margin: 0,
+            roundBlockSizeMode: RoundBlockSizeMode::Margin,
+            foregroundColor: new Color(0, 0, 0),
+            backgroundColor: new Color(255, 255, 255)
+        );
+        $result = $writer->write($qrCode);
+
+        return $result->getDataUri();
     }
 
     /**

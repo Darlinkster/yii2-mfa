@@ -43,6 +43,11 @@ class QrCodeWidget extends Widget
     public $image;
 
     /**
+     * @var string generate QR code via online service
+     */
+    public $online = false;
+
+    /**
      * @inheritDoc
      */
     public function init()
@@ -72,7 +77,7 @@ class QrCodeWidget extends Widget
             $params['image'] = $this->image;
         }
 
-        $uri = $this->user->getQrCodeUri($params);
+        $uri = $this->user->getQrCodeUri($params, $this->online);
 
         if ($uri) {
             return Html::img($uri, $this->options);

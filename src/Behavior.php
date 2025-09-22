@@ -323,7 +323,7 @@ class Behavior extends BaseBehavior
      * @return string|null qr code uri. If `null`, it means the user is a guest or not enable mfa.
      * @throws \Throwable
      */
-    public function getQrCodeUri(array $params)
+    public function getQrCodeUri(array $params, bool $online = false)
     {
         if ($identity = $this->owner->getIdentity()) {
             if (!$identity instanceof IdentityInterface) {
@@ -332,7 +332,11 @@ class Behavior extends BaseBehavior
                 $secretKey = $identity->getMfaSecretKey();
 
                 if (!empty($secretKey)) {
-                    return $this->getOtp()->getQrCodeUri($secretKey, $params);
+                    if ($online) {
+                        return $this->getOtp()->getQrCodeUri($secretKey, $params);
+                    } else {
+                        return $this->getOtp()->generateQrCodeImage($secretKey, $params);
+                    }
                 }
             }
         }
