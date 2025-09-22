@@ -133,18 +133,14 @@ class Otp extends BaseObject
         $this->qrCodeUriTemplate = $this->qrCodeUriPlacehoder;
         $writer = new PngWriter();
         $qrCode = new QrCode(
-            data: $instance->getQrCodeUri($this->qrCodeUriTemplate, $this->qrCodeUriPlacehoder),
-            encoding: new Encoding('UTF-8'),
-            errorCorrectionLevel: ErrorCorrectionLevel::Low,
-            size: 200,
-            margin: 0,
-            roundBlockSizeMode: RoundBlockSizeMode::Margin,
-            foregroundColor: new Color(0, 0, 0),
-            backgroundColor: new Color(255, 255, 255)
+            urldecode($instance->getQrCodeUri($this->qrCodeUriTemplate, $this->qrCodeUriPlacehoder)),
+            new Encoding('UTF-8'),
+            ErrorCorrectionLevel::Low,
+            200,
+            0
         );
-        $result = $writer->write($qrCode);
 
-        return $result->getDataUri();
+        return $writer->write($qrCode)->getDataUri();
     }
 
     /**
