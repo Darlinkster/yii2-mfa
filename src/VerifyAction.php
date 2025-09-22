@@ -41,9 +41,14 @@ class VerifyAction extends Action
     use EnsureUserBehaviorAttachedTrait;
 
     /**
-     * @var string the name of view file if not set an id of this action will be use.
+     * @var string the name of view file if not set an id of this action will be used.
      */
     public $viewFile;
+
+    /**
+     * @var string the name of layout file if not set an default layout will be used.
+     */
+    public $layoutFile;
 
     /**
      * @var string the name of variable in view refer to an object of `vxm\mfa\OtpForm`.
@@ -99,6 +104,9 @@ class VerifyAction extends Action
     {
         $this->ensureUserBehaviorAttached();
         $this->viewFile = $this->viewFile ?? $this->id;
+        if (!empty($this->layoutFile)) {
+            $this->controller->layout = $this->layoutFile;
+        }
 
         parent::init();
     }
