@@ -1,15 +1,12 @@
 # Yii2 MFA
 
-[![Latest Stable Version](https://poser.pugx.org/vxm/yii2-mfa/v/stable)](https://packagist.org/packages/vxm/yii2-mfa)
-[![Total Downloads](https://poser.pugx.org/vxm/yii2-mfa/downloads)](https://packagist.org/packages/vxm/yii2-mfa)
-[![Build Status](https://travis-ci.org/vuongxuongminh/yii2-mfa.svg?branch=master)](https://travis-ci.org/vuongxuongminh/yii2-mfa)
-[![Code Coverage](https://scrutinizer-ci.com/g/vuongxuongminh/yii2-mfa/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/vuongxuongminh/yii2-mfa/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vuongxuongminh/yii2-mfa/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vuongxuongminh/yii2-mfa/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/darlinkster/yii2-mfa/v/stable)](https://packagist.org/packages/darlinkster/yii2-mfa)
+[![Total Downloads](https://poser.pugx.org/darlinkster/yii2-mfa/downloads)](https://packagist.org/packages/darlinkster/yii2-mfa)
 [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
 
 ## About it
 
-An extension support implementing multi factor authenticate base on [Spomky-Labs/otphp](https://github.com/Spomky-Labs/otphp) wrapper for Yii2 user component.
+An extension support implementing multi factor authenticate base [vxm/yii2-mfa](https://github.com/vuongxuongminh/yii2-mfa) on and [Spomky-Labs/otphp](https://github.com/Spomky-Labs/otphp) wrapper for Yii2 user component.
 
 ## Requirements
 
